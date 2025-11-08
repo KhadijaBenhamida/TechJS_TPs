@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div(class="bg-white/80 backdrop-blur-md shadow-lg rounded-2xl p-10 w-[400px] border border-gray-200")
+    div(class="flex justify-center mb-4")
+      i(class="fa-solid fa-right-to-bracket text-indigo-600 text-4xl")
+
+    h1(class="text-2xl font-bold text-center text-gray-800 mb-6") Log in to your Account
+
+    form(action="/login" method="POST" class="space-y-5")
+      input(type="text" name="username" placeholder="Username" required class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none")
+      input(type="password" name="password" placeholder="Password" required class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none")
+      button(type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white w-full py-3 rounded-lg font-semibold tracking-wide transition-all duration-200") Log In
+
+    p(class="text-center mt-5 text-gray-600 text-sm")
+      | Don’t have an account?
+      a(href="/register" class="text-indigo-700 font-semibold ml-1 hover:underline") Register →

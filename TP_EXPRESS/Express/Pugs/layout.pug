@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title || "📖 Book Tracker"
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css")
+    link(rel="icon", href="https://cdn-icons-png.flaticon.com/512/29/29302.png")
+  body(class="bg-gradient-to-tr from-gray-100 via-indigo-100 to-white min-h-screen flex flex-col items-center justify-center font-sans antialiased")
+
+    if success
+      div(class="fixed top-5 bg-green-50 text-green-700 border border-green-400 px-4 py-2 rounded-lg shadow animate-fadeIn")= success
+    if error
+      div(class="fixed top-5 bg-red-50 text-red-700 border border-red-400 px-4 py-2 rounded-lg shadow animate-fadeIn")= error
+
+    block content
+
+    footer.mt-10.text-center.text-gray-500.text-sm.pb-4
+      | © 2025 Book Tracker App — ENSA Khouribga | Designed by BENHAMIDA KHADIJA

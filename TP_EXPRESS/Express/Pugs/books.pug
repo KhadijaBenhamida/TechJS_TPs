@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  div(class="w-full max-w-6xl bg-white/90 backdrop-blur-lg shadow-xl rounded-3xl p-10 flex flex-col gap-10")
+    // Header
+    div(class="flex items-center justify-between border-b border-gray-200 pb-5")
+      h1(class="text-3xl font-bold text-gray-800 flex items-center gap-3")
+        i(class="fa-solid fa-book-open text-indigo-600 text-2xl")
+        | Your Library
+      a(href="/logout" class="text-sm text-red-600 font-semibold hover:text-red-700 transition-all bg-red-50 px-4 py-2 rounded-md border border-red-200 shadow-sm hover:shadow-md") Logout ⎋
+
+    // Book grid
+    if books.length
+      div(class="grid md:grid-cols-2 lg:grid-cols-3 gap-8")
+        each book in books
+          div(class="bg-gradient-to-tr from-indigo-50 to-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col justify-between")
+            div
+              h2(class="text-xl font-bold text-gray-800 mb-1 flex items-center gap-2")
+                i(class="fa-solid fa-book text-indigo-500")
+                = book.title
+              p(class="text-gray-600 italic mb-3")= "By " + book.author
+            div
+              div(class="w-full bg-gray-200 rounded-full h-2 mb-2 overflow-hidden")
+                div(class="bg-indigo-500 h-2 rounded-full transition-all duration-500 ease-out" style="width:70%")
+              p(class="text-xs text-gray-500") Progress: 70%
+    else
+      div(class="text-center text-gray-600 mt-20")
+        i(class="fa-solid fa-book text-indigo-400 text-5xl mb-4")
+        p(class="text-lg") No books yet — add your first one and start reading!
